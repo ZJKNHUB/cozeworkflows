@@ -1,0 +1,34 @@
+{
+  "name": "ChatGPT Image Batch Downloader",
+  "description": "Batch send prompts to the ChatGPT image model, wait for each generation, and download the images in order.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ChatGPT Image Batch Downloader"
+  },
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://chatgpt.com/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*",
+        "https://chatgpt.com/*"
+      ],
+      "js": [
+        "scripts/content-script.js"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGPT 批量生图</title>
+    <link rel="stylesheet" href="styles/popup.css" />
+  </head>
+  <body>
+    <main>
+      <h1>ChatGPT 批量生图</h1>
+      <section class="field">
+        <label for="prompts">提示词（每行一个）</label>
+        <textarea id="prompts" placeholder="一幅日落海面，电影质感
+一只可爱的机器人在花园里"></textarea>
+      </section>
+
+      <section class="field triple">
+        <div>
+          <label for="prefix">保存目录前缀</label>
+          <input id="prefix" type="text" value="chatgpt-images" />
+        </div>
+        <div>
+          <label for="startIndex">起始序号</label>
+          <input id="startIndex" type="number" min="1" value="1" />
+        </div>
+        <div class="actions">
+          <button id="start">开始生成</button>
+          <button id="stop" class="secondary">停止</button>
+        </div>
+      </section>
+
+      <section class="status">
+        <div><strong>状态：</strong><span id="statusText">待开始</span></div>
+        <div><strong>当前提示词：</strong><span id="currentPrompt">-</span></div>
+        <div><strong>剩余：</strong><span id="remaining">0</span></div>
+        <div><strong>已下载：</strong><span id="downloaded">0</span></div>
+        <div><strong>下一个序号：</strong><span id="nextIndex">1</span></div>
+      </section>
+    </main>
+
+    <script src="scripts/popup.js"></script>
+  </body>
+</html>
